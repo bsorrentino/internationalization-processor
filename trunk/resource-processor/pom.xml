@@ -6,7 +6,12 @@
   <packaging>jar</packaging>
   <version>1.0</version>
   <name>resource-processor</name>
-  <url>http://maven.apache.org</url>
+  <description>
+  Goal of this project is to provide simple and useful tools based on java annotation processor to accomplish internationalization tasks
+
+The idea is to implement the same approach of internationalization used within GWT framework 
+</description>
+  <url>http://code.google.com/p/internationalization-processor/</url>
     <build>
         <plugins>
             <plugin>
@@ -61,7 +66,7 @@
     <snapshot.repo.id>google-project</snapshot.repo.id>
     <snapshot.repo.url>svn:https://internationalization-processor.googlecode.com/svn/mavenrepo</snapshot.repo.url>
     <release.repo.id>google-project</release.repo.id>
-
+	<site.repo.url>svn:https://internationalization-processor.googlecode.com/svn/site</site.repo.url>
 	<!-- SCM properties  -->
 	<addTimestamp>true</addTimestamp>
 	<tag>${pom.artifactId}-${pom.version}</tag>
@@ -131,6 +136,11 @@
         <url>${snapshot.repo.url}</url>
         <uniqueVersion>false</uniqueVersion>
 </snapshotRepository>
+    <site>
+      <id>site</id>
+      <url>${site.repo.url}</url>
+    </site>
+
 </distributionManagement>
 
 <pluginRepositories>

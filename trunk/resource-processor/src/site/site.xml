@@ -9,7 +9,7 @@
     <menu name="Overview">
     
     	<item name="Summary" href="project-summary.html"/>
-    	<item name="document project" href="usage.html"/>
+    	<item name="usage" href="usage.html"/>
 
     </menu>
 

@@ -5,15 +5,13 @@
 
 package org.bsc.processor.implementation;
 
-import biz.source_code.miniTemplator.MiniTemplator;
 import java.io.Writer;
 import java.text.SimpleDateFormat;
 import java.util.Collection;
 import java.util.Enumeration;
 import java.util.PropertyResourceBundle;
 import java.util.Set;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
 import javax.annotation.processing.AbstractProcessor;
 import javax.annotation.processing.Filer;
 import javax.annotation.processing.RoundEnvironment;
@@ -21,10 +19,12 @@ import javax.annotation.processing.SupportedAnnotationTypes;
 import javax.annotation.processing.SupportedSourceVersion;
 import javax.lang.model.SourceVersion;
 import javax.lang.model.element.TypeElement;
-import javax.tools.Diagnostic.Kind;
 import javax.tools.FileObject;
 import javax.tools.JavaFileObject;
 import javax.tools.StandardLocation;
+import javax.tools.Diagnostic.Kind;
+
+import biz.source_code.miniTemplator.MiniTemplator;
 
 /**
  *
@@ -33,30 +33,30 @@ import javax.tools.StandardLocation;
 @SupportedSourceVersion(SourceVersion.RELEASE_5)
 @SupportedAnnotationTypes("org.bsc.processor.annotation.ResourceBundle")
 public class ResourceProcessorImpl extends AbstractProcessor {
-
+	
     final SimpleDateFormat dateFmt = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ");
-    final Logger logger = Logger.getLogger("processor");
+    //final Logger logger = Logger.getLogger("processor");
 
     private void info( String msg ) {
-        logger.info(msg);
+        //logger.info(msg);
         processingEnv.getMessager().printMessage(Kind.NOTE, msg );
     }
 
     private void warn( String msg ) {
-        logger.warning(msg);
+        //logger.warning(msg);
         processingEnv.getMessager().printMessage(Kind.WARNING, msg );
     }
     private void warn( String msg, Throwable t ) {
-        logger.log(Level.WARNING, msg, t );
+        //logger.log(Level.WARNING, msg, t );
         processingEnv.getMessager().printMessage(Kind.WARNING, msg );
     }
 
     private void error( String msg ) {
-        logger.severe(msg);
+        //logger.severe(msg);
         processingEnv.getMessager().printMessage(Kind.ERROR, msg );
     }
     private void error( String msg, Throwable t ) {
-        logger.log(Level.SEVERE, msg, t );
+        //logger.log(Level.SEVERE, msg, t );
         processingEnv.getMessager().printMessage(Kind.ERROR, msg );
     }
     
