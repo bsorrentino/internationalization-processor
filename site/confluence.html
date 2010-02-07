@@ -12,7 +12,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <title>resource-processor - Source Repository</title>
+    <title>resource-processor - Project Dependencies</title>
     <style type="text/css" media="all">
       @import url("./css/maven-base.css");
       @import url("./css/maven-theme.css");
@@ -86,8 +86,8 @@
           </li>
               
     <li class="none">
-              <strong>Source</strong>
-        </li>
+                    <a href="source-repository.html">Source</a>
+          </li>
           </ul>
                                            <a href="http://maven.apache.org/" title="Built by Maven" class="poweredBy">
             <img alt="Built by Maven" src="./images/logos/maven-feather.png"></img>
@@ -104,15 +104,57 @@
     </div>
     <div id="bodyColumn">
       <div id="contentBox">
-        <div class="section"><h2>Overview</h2>
-<p>This project uses a Source Content Management System to manage its source code.</p>
+        <div class="section"><h2>Project Summary</h2>
+<div class="section"><h3>Project Information</h3>
+<table class="bodyTable"><tr class="a"><th>Field</th>
+<th>Value</th>
+</tr>
+<tr class="b"><td>Name</td>
+<td>resource-processor</td>
+</tr>
+<tr class="a"><td>Description</td>
+<td>Goal of this project is to provide simple and useful tools based on java annotation processor to accomplish internationalization tasks
+
+The idea is to implement the same approach of internationalization used within GWT framework</td>
+</tr>
+<tr class="b"><td>Homepage</td>
+<td><a class="externalLink" href="http://code.google.com/p/internationalization-processor/">http://code.google.com/p/internationalization-processor/</a></td>
+</tr>
+</table>
 </div>
-<div class="section"><h2>Web Access</h2>
+<div class="section"><h3>Project Organization</h3>
+<p>This project does not belong to an organization.</p>
+</div>
+<div class="section"><h3>Build Information</h3>
+<table class="bodyTable"><tr class="a"><th>Field</th>
+<th>Value</th>
+</tr>
+<tr class="b"><td>GroupId</td>
+<td>org.bsc.processor</td>
+</tr>
+<tr class="a"><td>ArtifactId</td>
+<td>resource-processor</td>
+</tr>
+<tr class="b"><td>Version</td>
+<td>1.0</td>
+</tr>
+<tr class="a"><td>Type</td>
+<td>jar</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="section"><h2>Source Repository</h2>
+<div class="section"><h3>Overview</h3>
+<p>This project uses a Source Content Management System to manage its source code.</p>
+<br />
+</div>
+<div class="section"><h3>Web Access</h3>
 <p>The following is a link to the online source repository.</p>
 <div class="source"><pre><a class="externalLink" href="https://internationalization-processor.googlecode.com/svn/trunk/resource-processor">https://internationalization-processor.googlecode.com/svn/trunk/resource-processor</a></pre>
 </div>
 </div>
-<div class="section"><h2>Developer access</h2>
+<div class="section"><h3>Developer access</h3>
 <p>Everyone can access the Subversion repository via HTTP, but Committers must checkout the Subversion repository via HTTPS.</p>
 <div class="source"><pre>$ svn checkout https://internationalization-processor.googlecode.com/svn/trunk/resource-processor resource-processor</pre>
 </div>
@@ -120,12 +162,12 @@
 <div class="source"><pre>$ svn commit --username your-username -m &quot;A message&quot;</pre>
 </div>
 </div>
-<div class="section"><h2>Access from behind a firewall</h2>
+<div class="section"><h3>Access from behind a firewall</h3>
 <p>For those users who are stuck behind a corporate firewall which is blocking HTTP access to the Subversion repository, you can try to access it via the developer connection:</p>
 <div class="source"><pre>$ svn checkout https://internationalization-processor.googlecode.com/svn/trunk/resource-processor resource-processor</pre>
 </div>
 </div>
-<div class="section"><h2>Access through a proxy</h2>
+<div class="section"><h3>Access through a proxy</h3>
 <p>The Subversion client can go through a proxy, if you configure it to do so. First, edit your &quot;servers&quot; configuration file to indicate which proxy to use. The file's location depends on your operating system. On Linux or Unix it is located in the directory &quot;~/.subversion&quot;. On Windows it is in &quot;%APPDATA%\Subversion&quot;. (Try &quot;echo %APPDATA%&quot;, note this is a hidden directory.)</p>
 <p>There are comments in the file explaining what to do. If you don't have that file, get the latest Subversion client and run any command; this will cause the configuration directory and template files to be created.</p>
 <p>Example: Edit the 'servers' file and add something like:</p>
@@ -133,6 +175,70 @@
 http-proxy-host = your.proxy.name
 http-proxy-port = 3128
 </pre>
+</div>
+</div>
+</div>
+<div class="section"><h2>Project Dependencies</h2>
+<div class="section"><h3>compile</h3>
+<p>The following is a list of compile dependencies for this project. These dependencies are required to compile and run the application:</p>
+<table class="bodyTable"><tr class="b"><th>GroupId</th>
+<th>ArtifactId</th>
+<th>Version</th>
+<th>Classifier</th>
+<th>Type</th>
+<th>Optional</th>
+</tr>
+<tr class="a"><td>miniTemplator</td>
+<td>miniTemplator</td>
+<td>1.0</td>
+<td>-</td>
+<td>jar</td>
+<td>(optional)</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3>test</h3>
+<p>The following is a list of test dependencies for this project. These dependencies are only required to compile and run unit tests for the application:</p>
+<table class="bodyTable"><tr class="b"><th>GroupId</th>
+<th>ArtifactId</th>
+<th>Version</th>
+<th>Classifier</th>
+<th>Type</th>
+<th>Optional</th>
+</tr>
+<tr class="a"><td>junit</td>
+<td>junit</td>
+<td>4.1</td>
+<td>-</td>
+<td>jar</td>
+<td> </td>
+</tr>
+</table>
+</div>
+</div>
+<div class="section"><h2>Project Transitive Dependencies</h2>
+<p>The following is a list of transitive dependencies for this project. Transitive dependencies are the dependencies of the project dependencies.</p>
+</div>
+<div class="section"><h2>Project Dependency Graph</h2>
+<div class="section"><h3>Dependency Tree</h3>
+<br />
+<p><li><ul><li><a href="#miniTemplator:miniTemplator:jar">miniTemplator:miniTemplator:jar</a></li>
+<li><a href="#junit:junit:jar">junit:junit:jar</a></li>
+</ul>
+</p>
+</li>
+</p>
+</div>
+<div class="section"><h3>report.dependencies.graph.tables.title</h3>
+<p><a name="org.bsc.processor:resource-processor:jar"><b>resource-processor</b></a></p>
+<p>Goal of this project is to provide simple and useful tools based on java annotation processor to accomplish internationalization tasks
+
+The idea is to implement the same approach of internationalization used within GWT framework</p>
+<p><a class="externalLink" href="http://code.google.com/p/internationalization-processor/">http://code.google.com/p/internationalization-processor/</a></p>
+<p><a name="miniTemplator:miniTemplator:jar"><b>Unnamed - miniTemplator:miniTemplator:jar:1.0</b></a></p>
+<p><a name="junit:junit:jar"><b>JUnit</b></a></p>
+<p>JUnit is a regression testing framework written by Erich Gamma and Kent Beck. It is used by the developer who implements unit tests in Java.</p>
+<p><a class="externalLink" href="http://junit.org">http://junit.org</a></p>
 </div>
 </div>
 
