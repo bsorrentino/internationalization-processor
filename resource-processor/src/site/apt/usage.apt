@@ -1,112 +1,115 @@
-This plugin is designed to be used joined with a {{{http://code.google.com/p/maven-annotation-plugin/}maven-annotation-plugin}}
+Introduction
+
+ This plugin is designed to be used joined with a {{{http://code.google.com/p/maven-annotation-plugin/}maven-annotation-plugin}}
 
 Usage
 
-  To use processor you have to decorate a class with the <<@ResourceBundle>> annotation (see example)
+  To use processor you have to do the following steps:
   
+  [[1]] Create a file containing messages. 
+  
+  [[2]] Add dependency of processor in your POM.
+  
+  [[3]] Decorate a (chosen) class with the <<@ResourceBundle>> annotation. 
+  
+  [[4]] Run processor using maven-annotation-plugin.
+  
+ * <<Create a file containing messages>>
+
+ The messages must be put in the properties file named <<messages.properties>>. This file must be <<reachable from classpath>> and the name of each property must be compliant with <<java method name syntax>>
+ After run of processor
+
+ * <<Add dependency of processor in your POM>>
+ 
+ Add to your pom the following dependency
+
++-------------------------------------------+
+
+    <dependency>
+          <groupId>org.bsc.processor</groupId>
+          <artifactId>resource-processor</artifactId>
+          <version>1.0</version>
+          <type>jar</type>
+          <optional>true</optional><!-- Optional avoid to include dependency in transitive mode --> 
+    </dependency>
+
++-------------------------------------------+
+
+ And add repository declaration 
+
++-------------------------------------------+
+
+<repositories>
+    <repository>
+      <id>internationalization-processor</id>
+      <url>http://internationalization-processor.googlecode.com/svn/mavenrepo</url>
+    </repository>
+</repositories>
+
++-------------------------------------------+
+
+ * <<Decorate a (chosen) class with the @ResourceBundle annotation>>
+
+ Choose a class and decorate it with the @ResourceBundle annotation (see example below)
+ 
 +-------------------------------------------+
 
 @ResourceBundle
 public class ProcessorTest {
 
-
 }
 
 +-------------------------------------------+
 
- The messages must be put in the properties file named <<messages.properties>>. This file must be reachable from classpath.
-
-
-+-------------------------------------------+
-  <reporting>
-  	<plugins>
-  		<plugin>
-  			<groupId>org.bsc.maven</groupId>
-  			<artifactId>maven-confluence-reporting-plugin</artifactId>
-  			<version>1.0.0-SNAPSHOT</version>
-  			<reportSets>
-  				<reportSet>
-  					<id>confluence</id>
-  					<configuration>
-  						<endPoint>http://localhost:8081/rpc/xmlrpc</endPoint>
-  						<spaceKey>DOCS</spaceKey>
-  						<username>admin</username>
-						<password>******</password> <!-- CONFLUENCE PASSWORD -->
-						<parentPageTitle>Home</parentPageTitle><!-PARENT PAGE IN THE GIVEN SPACE -->
-  					</configuration>
-  					<reports>
-  						<report>confluence-summary</report>				
-  					</reports>
-  				</reportSet>
-  			</reportSets>			
+ The processor automatically will generate the class \<class name\>Messages.java 
   
-  		</plugin>
-  	</plugins>
-  </reporting>
+ * <<Run processor using maven-annotation-plugin>>
+ 
+
 +-------------------------------------------+
 
-Repositories
+</plugin>
+    <plugin>
+      <groupId>org.bsc.maven</groupId>
+      <artifactId>maven-processor-plugin</artifactId>
+      <version>1.3.1</version>
+      <executions>
+        <execution>
+          <id>process</id>
+          <goals>
+            <goal>process</goal>
+          </goals>
+          <phase>generate-sources</phase>
+          <configuration>
+             <outputDirectory>${basedir}/target/generated-sources/processor</outputDirectory>
+              
+             <!-- failOnError>true</failOnError -->
+              
+             <processors>
+             <!-- list of processors to use -->
+                <processor>org.bsc.processor.implementation.ResourceProcessorImpl</processor>
+            </processors>  
+          </configuration>
 
-  To use this processor you have to include the following repository declaration in your POM
+        </execution>
+      </executions>
+    </plugin>
+
++-------------------------------------------+
+
+ And add the plugin repository declaration
 
 +-------------------------------------------+
 
 <pluginRepositories>
-  	<pluginRepository>
-  		<id>google-project</id>
-  		<url>http://internationalization-processor.googlecode.com/svn/mavenrepo</url>
-  	</pluginRepository>
+    <pluginRepository>
+      <id>maven-annotation-plugin</id>
+      <url>http://maven-annotation-plugin.googlecode.com/svn/trunk/mavenrepo</url>
+    </pluginRepository>
 </pluginRepositories>
 
 +-------------------------------------------+
  
- To run processor you have to include 
-
-
-Use generation template
-
-  By default the plugin use an internal template to generate confluence page. You can customize the generated page creating a personal template into  folder <<<$\{basedir\}/src/site/confluence>>> named <<<template.wiki>>>.
-  The template can include all valid confluence contents plus the following built-in varables 
-  
-*---------------------------+-----------------+
-| $\{project.summary\}      | project summary |
-*---------------------------+-----------------+
-| $\{project.scmManager\}   | scm information |
-*---------------------------+-----------------+
-| $\{project.dependencies\} | dependencies    |
-*---------------------------+-----------------+
-Built-In template variables
-  
-Template example
-
-+-------------------------------------------+
-
-{info:title=Useful Information}
-This page has been generated by [maven-confluence-plugin|http://code.google.com/p/maven-confluence-plugin/]
-{info}
-
-{toc}
-
-h1. Introduction
-
-{panel}
-project description 
-{panel}
-
-h1. Usage
-
-{panel}
-How to use the project
-{panel}
-
-${project.summary}
-
-
-${project.scmManager}
-
-
-${project.dependencies}
-  
-+-------------------------------------------+
+ 
   
  
