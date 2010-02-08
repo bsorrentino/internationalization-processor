@@ -1,0 +1,32 @@
+
+package ${package};
+
+//import javax.annotation.Generated;
+import java.util.Locale;
+import java.text.MessageFormat;
+
+//@Generated(value="${value}",date="${date}")
+public class  ${className} {
+
+    public synchronized static ${className} createInstance( Locale locale ) {
+
+        if( locale==null ) locale = Locale.getDefault();
+
+        java.util.ResourceBundle bundle = java.util.ResourceBundle.getBundle( "messages", locale,  ${className}.class.getClassLoader() );
+        ${className} instance = new ${className}( bundle );
+
+        return instance;
+    }
+
+    public final java.util.ResourceBundle bundle;
+
+    private ${className}( java.util.ResourceBundle bundle ) {
+        this.bundle = bundle;
+
+    }
+
+<!-- $BeginBlock property -->
+    public String ${propertyName}( Object...args) { return (bundle==null) ? "${propertyName}" : MessageFormat.format(bundle.getString("${propertyName}"), (Object[])args); }
+<!-- $EndBlock property -->
+
+}
