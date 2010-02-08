@@ -4,7 +4,7 @@
   <groupId>org.bsc.processor</groupId>
   <artifactId>resource-processor</artifactId>
   <packaging>jar</packaging>
-  <version>1.0</version>
+  <version>1.1-SNAPSHOT</version>
   <name>resource-processor</name>
   <description>
   Goal of this project is to provide simple and useful tools based on java annotation processor to accomplish internationalization tasks
@@ -113,6 +113,7 @@ The idea is to implement the same approach of internationalization used within G
                                         <endPoint>http://support.softphone.it/confluence/rpc/xmlrpc</endPoint>
                                         <spaceKey>DEV</spaceKey>
                                         <username>bsorrentino</username>
+                                        <parentPageTitle>Artifacts</parentPageTitle>
                                 </configuration>
                                 <reports>
                                         <report>confluence-summary</report>

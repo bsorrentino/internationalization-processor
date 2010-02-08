@@ -1,11 +1,11 @@
 
 package ${package};
 
-import javax.annotation.Generated;
+//import javax.annotation.Generated;
 import java.util.Locale;
 import java.text.MessageFormat;
 
-@Generated(value="${value}",date="${date}")
+//@Generated(value="${value}",date="${date}")
 public class  ${className} {
 
     public synchronized static ${className} createInstance( Locale locale ) {
@@ -18,7 +18,7 @@ public class  ${className} {
         return instance;
     }
 
-    private final java.util.ResourceBundle bundle;
+    public final java.util.ResourceBundle bundle;
 
     private ${className}( java.util.ResourceBundle bundle ) {
         this.bundle = bundle;
