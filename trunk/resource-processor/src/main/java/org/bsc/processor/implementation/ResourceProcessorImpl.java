@@ -133,6 +133,11 @@ public class ResourceProcessorImpl extends AbstractProcessor {
 
                 String k = keys.nextElement();
 
+                if( !isValidMethodKey(k)) {
+                    warn(  String.format( "key [%s] is not a valid method name!", k ));
+                    continue;
+                }
+                
                 info(  String.format( "[%s]=[%s]", k, bundle.getString(k) ));
 
                 t.setVariable( "propertyName", k );
@@ -155,4 +160,7 @@ public class ResourceProcessorImpl extends AbstractProcessor {
         return true;
     }
 
+    private boolean isValidMethodKey( String key ) {
+    	return java.util.regex.Pattern.matches("\\w+", key);
+    }
 }

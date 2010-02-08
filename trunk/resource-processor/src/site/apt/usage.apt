@@ -16,8 +16,9 @@ Usage
   
  * <<Create a file containing messages>>
 
- The messages must be put in the properties file named <<messages.properties>>. This file must be <<reachable from classpath>> and the name of each property must be compliant with <<java method name syntax>>
- After run of processor
+ The messages must be put in the properties file named <<messages.properties>>. 
+ This file must be <<reachable from classpath>> and the name of each property must be compliant with <<java method name syntax>> otherwise will be ignored
+
 
  * <<Add dependency of processor in your POM>>
  
