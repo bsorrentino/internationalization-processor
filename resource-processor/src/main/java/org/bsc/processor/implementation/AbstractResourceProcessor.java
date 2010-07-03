@@ -130,6 +130,7 @@ public abstract class AbstractResourceProcessor extends AbstractProcessor {
         t.setVariable("value", getClass().getName());
         t.setVariable("date", date );
         t.setVariable("className", className );
+        t.setVariable("messages", String.format( "%s/%s", packageName.replace('.', '/'), className));
 
 
         Enumeration<String> keys = bundle.getKeys();
@@ -190,6 +191,7 @@ public abstract class AbstractResourceProcessor extends AbstractProcessor {
             t.setVariable("value", getClass().getName());
             t.setVariable("date", date );
             t.setVariable("className", className );
+            t.setVariable("messages", "messages");
 
 
             Enumeration<String> keys = bundle.getKeys();

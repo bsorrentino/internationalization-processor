@@ -12,7 +12,7 @@ public class  ${className} {
 
         if( locale==null ) locale = Locale.getDefault();
 
-        java.util.ResourceBundle bundle = java.util.ResourceBundle.getBundle( "messages", locale,  ${className}.class.getClassLoader() );
+        java.util.ResourceBundle bundle = java.util.ResourceBundle.getBundle( "${messages}", locale,  ${className}.class.getClassLoader() );
         ${className} instance = new ${className}( bundle );
 
         return instance;
