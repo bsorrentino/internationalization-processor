@@ -5,14 +5,13 @@
 
 package org.bsc.processor.test;
 
-import java.util.Locale;
-import org.bsc.processor.annotation.ResourceBundle;
+
 
 /**
  *
  * @author softphone
  */
-@ResourceBundle
+@org.bsc.processor.annotation.ResourceBundle
 public class ProcessorTest {
 
     public ProcessorTest() {
