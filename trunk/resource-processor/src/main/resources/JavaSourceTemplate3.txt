@@ -1,0 +1,22 @@
+
+package ${package};
+
+//import javax.annotation.Generated;
+
+/**
+ *
+ * Generated from ${messages}
+ */
+//@Generated(value="${value}",date="${date}")
+public interface  ${className} {
+
+    /**
+     * this method allow to access directly to resource bundle
+     */
+    String getString( String key );
+
+<!-- $BeginBlock property -->
+    String ${propertyName}( Object...args); 
+<!-- $EndBlock property -->
+
+}

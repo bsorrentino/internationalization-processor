@@ -73,7 +73,7 @@ public class ResourceProcessorAnnotationLess extends AbstractResourceProcessor {
         }
 
         try {
-            generateSource( packageName, simpleName, source, bundle);
+            generateSource( packageName, simpleName, source, bundle, "JavaSourceTemplate.txt");
         } catch (Exception ex) {
             error( "error generating source", ex);
             return false;

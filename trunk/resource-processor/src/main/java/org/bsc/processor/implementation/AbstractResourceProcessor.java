@@ -111,7 +111,7 @@ public abstract class AbstractResourceProcessor extends AbstractProcessor {
      * @param bundle
      * @throws Exception
      */
-    protected void generateSource(  String packageName, String className, JavaFileObject source, FileObject resource  ) throws Exception  {
+    protected void generateSource(  String packageName, String className, JavaFileObject source, FileObject resource, String templateResourceName  ) throws Exception  {
 
         if( source.getLastModified() >= resource.getLastModified() ) {
             info( "generation is skipped! source is updated");
@@ -122,7 +122,7 @@ public abstract class AbstractResourceProcessor extends AbstractProcessor {
 
         String date = dateFmt.format(new java.util.Date());
 
-        java.io.InputStream template = getClass().getClassLoader().getResourceAsStream("JavaSourceTemplate.txt");
+        java.io.InputStream template = getClass().getClassLoader().getResourceAsStream(templateResourceName);
 
         MiniTemplator t = new MiniTemplator(new java.io.InputStreamReader(template) );
 
@@ -166,7 +166,7 @@ public abstract class AbstractResourceProcessor extends AbstractProcessor {
      * @param bundle
      * @throws Exception
      */
-    protected void generateSource( TypeElement annotatedType, PropertyResourceBundle bundle  ) throws Exception  {
+    protected void generateSource( TypeElement annotatedType, PropertyResourceBundle bundle, String templateResourceName  ) throws Exception  {
 
             String fqn = annotatedType.getQualifiedName().toString().concat("Messages");
             String className = annotatedType.getSimpleName().toString().concat("Messages");
@@ -183,7 +183,7 @@ public abstract class AbstractResourceProcessor extends AbstractProcessor {
 
             String date = dateFmt.format(new java.util.Date());
 
-            java.io.InputStream template = getClass().getClassLoader().getResourceAsStream("JavaSourceTemplate.txt");
+            java.io.InputStream template = getClass().getClassLoader().getResourceAsStream(templateResourceName);
 
             MiniTemplator t = new MiniTemplator(new java.io.InputStreamReader(template) );
 
