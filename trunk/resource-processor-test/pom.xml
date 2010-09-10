@@ -50,8 +50,12 @@
                          <!-- list of processors to use -->
                             <processor>org.bsc.processor.implementation.ResourceProcessorImpl</processor>
                             <processor>org.bsc.processor.implementation.ResourceProcessorAnnotationLess</processor>
+                            <processor>org.bsc.processor.implementation.ResourceProcessorInterface</processor>
                         </processors>  
-                        <compilerArguments>-Aresource=org.bsc.processor.test.Messages</compilerArguments>
+                        <compilerArguments>
+                            -Aresource=org.bsc.processor.test.Messages
+                            -Ainterface=org.bsc.processor.test.IMessages
+                        </compilerArguments>
                       </configuration>
 					  	
 
