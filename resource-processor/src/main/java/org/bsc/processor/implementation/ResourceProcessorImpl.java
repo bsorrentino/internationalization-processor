@@ -6,18 +6,14 @@
 package org.bsc.processor.implementation;
 
 import java.util.Collection;
-import java.util.Map;
 import java.util.PropertyResourceBundle;
 import java.util.Set;
 
-import javax.annotation.processing.Filer;
 import javax.annotation.processing.RoundEnvironment;
 import javax.annotation.processing.SupportedAnnotationTypes;
 import javax.annotation.processing.SupportedSourceVersion;
 import javax.lang.model.SourceVersion;
 import javax.lang.model.element.TypeElement;
-import javax.tools.FileObject;
-import javax.tools.StandardLocation;
 
 
 /**
@@ -56,7 +52,7 @@ public class ResourceProcessorImpl extends AbstractResourceProcessor {
             }
 
             if( annotatedType!=null ) {
-                generateSource( annotatedType, bundle );
+                generateSource( annotatedType, bundle, "JavaSourceTemplate.txt" );
             }
             else {
                 warn( "no annotation found!");

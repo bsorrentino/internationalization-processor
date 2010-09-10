@@ -1,0 +1,51 @@
+
+package ${package};
+
+//import javax.annotation.Generated;
+import java.util.Locale;
+import java.lang.reflect.InvocationHandler;
+import java.lang.reflect.Method;
+import java.lang.reflect.Proxy;
+
+//@Generated(value="${value}",date="${date}")
+public class  ${className}Factory  {
+
+    static class MyInvocationHandler implements InvocationHandler {
+        final java.util.ResourceBundle bundle ;
+
+        public MyInvocationHandler( java.util.ResourceBundle bundle ) {
+            this.bundle = bundle;
+        }
+
+        @Override
+        public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
+
+            final String key = method.getName();
+
+            if(bundle==null) return key;
+
+            if( "getString".equals(key) && args.length==1 ) return bundle.getString(  args[0].toString() );
+
+            if( !bundle.containsKey(key) ) return key;
+
+            return java.text.MessageFormat.format(bundle.getString(key), (Object[])args);
+        }
+
+    }
+
+    public synchronized static ${className} createInstance( Locale locale ) {
+
+        if( locale==null ) locale = Locale.getDefault();
+
+        java.util.ResourceBundle bundle = java.util.ResourceBundle.getBundle( "${messages}", locale,  ${className}.class.getClassLoader() );
+
+        final InvocationHandler handler = new MyInvocationHandler( bundle );
+
+        ${className} instance = (${className}) Proxy.newProxyInstance(${className}Factory.class.getClassLoader(),
+                new Class[]{${className}.class},
+                handler);
+
+        return instance;
+    }
+
+}
