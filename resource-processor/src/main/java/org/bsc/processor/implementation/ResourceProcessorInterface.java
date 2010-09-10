@@ -59,8 +59,8 @@ public class ResourceProcessorInterface extends AbstractResourceProcessor {
 
         info( String.format("processOptions fqn [%s] ", fqn ));
 
-        if( !generateInterface(fqn) ) return false;
-
+        return generateInterface(fqn);
+/*
         String packageName = getPackage( fqn );
         String simpleName = getSimpleName(fqn);
 
@@ -78,8 +78,9 @@ public class ResourceProcessorInterface extends AbstractResourceProcessor {
             error( "error generating source", ex);
             return false;
         }
-        
+
         return true;
+*/
     }
 
 
