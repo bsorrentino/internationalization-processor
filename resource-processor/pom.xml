@@ -85,6 +85,12 @@ The idea is to implement the same approach of internationalization used within G
         <optional>true</optional>
      </dependency>
     <dependency>
+        <groupId>com.google.gwt</groupId>
+        <artifactId>gwt-user</artifactId>
+        <version>2.0.0</version>
+        <optional>true</optional>
+     </dependency>
+    <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
       <version>4.1</version>
@@ -124,6 +130,36 @@ The idea is to implement the same approach of internationalization used within G
         </reporting>
 
     </profile>
+
+        <profile>
+            <id>twitter</id>
+
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>com.vineetmanohar</groupId>
+                        <artifactId>maven-twitter-plugin</artifactId>
+                        <version>0.1</version>
+
+                        <executions>
+				<!-- phase: deploy -->
+                            <execution>
+                                <configuration>
+                                    <!-- Tell your users that the project is deployed -->
+                                    <twitterStatus>New release ${project.version} of ${project.artifactId} is available - ${project.url}</twitterStatus>
+                                </configuration>
+                                <id>deploy</id>
+                                <phase>deploy</phase>
+                                <goals>
+                                    <goal>tweet</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+
 </profiles>
 
 <distributionManagement>
