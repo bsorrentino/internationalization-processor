@@ -9,7 +9,8 @@
     <menu name="Overview">
     
     	<item name="Summary" href="project-summary.html"/>
-    	<item name="usage" href="usage.html"/>
+    	<item name="usage 1.1 (old)" href="usage.html"/>
+    	<item name="usage 1.2" href="usage1_2.html"/>
 
     </menu>
 
