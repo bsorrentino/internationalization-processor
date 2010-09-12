@@ -3,7 +3,7 @@
   <groupId>org.bsc.processor</groupId>
   <artifactId>resource-processor</artifactId>
   <packaging>jar</packaging>
-  <version>1.2-SNAPSHOT</version>
+  <version>1.2</version>
   <name>resource-processor</name>
   <description>
   Goal of this project is to provide simple and useful tools based on java annotation processor to accomplish internationalization tasks
@@ -73,8 +73,8 @@ The idea is to implement the same approach of internationalization used within G
   </properties>
 
   <scm>
-	<developerConnection>scm:svn:https://internationalization-processor.googlecode.com/svn/trunk/resource-processor</developerConnection>
-	<url>https://internationalization-processor.googlecode.com/svn/trunk/resource-processor</url>
+	<developerConnection>scm:svn:https://internationalization-processor.googlecode.com/svn/tags/resource-processor-1.2</developerConnection>
+	<url>https://internationalization-processor.googlecode.com/svn/tags/resource-processor-1.2</url>
   </scm>
 
     <dependencies>
