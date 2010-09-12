@@ -61,17 +61,17 @@ The idea is to implement the same approach of internationalization used within G
         
     </build>
  <properties>
-    <release.repo.url>svn:https://internationalization-processor.googlecode.com/svn/mavenrepo</release.repo.url>
+    <release.repo.id>java.net-m2-repository</release.repo.id>
+    <release.repo.url>java-net:/maven2-repository/trunk/repository/</release.repo.url>
     <snapshot.repo.id>google-project</snapshot.repo.id>
     <snapshot.repo.url>svn:https://internationalization-processor.googlecode.com/svn/mavenrepo</snapshot.repo.url>
-    <release.repo.id>google-project</release.repo.id>
-	<site.repo.url>svn:https://internationalization-processor.googlecode.com/svn/site</site.repo.url>
-	<!-- SCM properties  -->
-	<addTimestamp>true</addTimestamp>
-	<tag>${pom.artifactId}-${pom.version}</tag>
-	<tagBase>https://internationalization-processor.googlecode.com/svn/tags</tagBase>
-
+    <site.repo.url>svn:https://internationalization-processor.googlecode.com/svn/site</site.repo.url>
+    <!-- SCM properties  -->
+    <addTimestamp>true</addTimestamp>
+    <tag>${pom.artifactId}-${pom.version}</tag>
+    <tagBase>https://internationalization-processor.googlecode.com/svn/tags</tagBase>
   </properties>
+
   <scm>
 	<developerConnection>scm:svn:https://internationalization-processor.googlecode.com/svn/trunk/resource-processor</developerConnection>
 	<url>https://internationalization-processor.googlecode.com/svn/trunk/resource-processor</url>
