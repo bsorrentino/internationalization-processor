@@ -5,11 +5,13 @@
 
 package org.bsc.processor;
 
-import com.google.gwt.i18n.client.Messages.DefaultMessage;
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 import java.util.Locale;
+
+import com.google.gwt.i18n.client.LocalizableResource.Key;
+import com.google.gwt.i18n.client.Messages.DefaultMessage;
 
 /**
  *
@@ -26,18 +28,23 @@ public class GwtMessagesFactory {
 		@Override
 		public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
 
-			final String key = method.getName();
+			Key annoKey = method.getAnnotation(Key.class);
+				
+			final String key = ( annoKey!=null ) ? annoKey.value() : method.getName();
 
 			if(bundle==null) {
 				DefaultMessage msg = method.getAnnotation(DefaultMessage.class);
 				return (msg!=null) ? msg : key;
 			}
-
+				
 			if( "getString".equals(key) && args.length==1 ) return bundle.getString(  args[0].toString() );
 
 			if( !bundle.containsKey(key) ) return key;
 
-                        return  java.text.MessageFormat.format(bundle.getString(key), (Object[])args[0] );
+			String value = bundle.getString(key); 
+			
+			
+            return  (args!=null ) ? java.text.MessageFormat.format(value, (Object[])args[0] ) : value;
 		}
 
 	}
