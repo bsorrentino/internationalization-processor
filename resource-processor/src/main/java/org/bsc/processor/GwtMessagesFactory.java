@@ -49,7 +49,17 @@ public class GwtMessagesFactory {
 
 	}
 
+        /**
+         * 
+         * @param <T>
+         * @param messageInterface
+         * @param locale
+         * @return
+         * @deprecated 
+         * @see #createInstance(java.util.Locale, java.lang.Class, java.lang.Class<?>[]) 
+         */
 	@SuppressWarnings("unchecked")
+        @Deprecated
 	public synchronized static <T> T createInstance( Class<T> messageInterface, Locale locale ) {
 		if( messageInterface==null ) throw new IllegalArgumentException("message interface is null!");
 
@@ -58,8 +68,8 @@ public class GwtMessagesFactory {
 		if( locale==null ) locale = Locale.getDefault();
 
 		java.util.ResourceBundle bundle = null;
-
-		try {
+		
+		try {	
 			bundle = java.util.ResourceBundle.getBundle( messageInterface.getName().replace('.', '/'), locale, cl  );
 		}
 		catch( java.util.MissingResourceException e ) {
@@ -71,5 +81,51 @@ public class GwtMessagesFactory {
 
 		return instance;
 	}
+        
+        /**
+         * 
+         * @param <T>
+         * @param locale
+         * @param messageInterface
+         * @param otherInterfaces
+         * @return 
+         */
+	@SuppressWarnings("unchecked")
+	public synchronized static <T> T createInstance( Locale locale, Class<T>  messageInterface, Class<?> ...otherInterfaces ) {
+		if (messageInterface == null)
+			throw new IllegalArgumentException("message interface is null!");
+
+		ClassLoader cl = messageInterface.getClassLoader();
+
+		if (locale == null)
+			locale = Locale.getDefault();
+
+		java.util.ResourceBundle bundle = null;
+
+		try {
+			bundle = java.util.ResourceBundle.getBundle(messageInterface
+					.getName().replace('.', '/'), locale, cl);
+		} catch (java.util.MissingResourceException e) {
+			// TODO log
+		}
+		final InvocationHandler handler = new MyInvocationHandler(bundle);
+
+		Class<?> classes[];
+		
+		if( otherInterfaces!=null ) {
+			classes = new Class[ otherInterfaces.length + 1 ];
+			classes[0] = messageInterface;
+			for( int j=1, i=0; i < otherInterfaces.length ; ++i, ++j) classes[j] = otherInterfaces[i];
+			
+		}
+		else {
+			classes = new Class[] { messageInterface };
+		}
+		
+		T instance = (T) Proxy.newProxyInstance(cl, classes,  handler);
+
+		return instance;
+	}
+        
 
 }
