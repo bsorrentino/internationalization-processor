@@ -67,6 +67,14 @@ public class  MessagesFactory  {
 		return instance;
 	}
         
+        /**
+         * 
+         * @param <T>
+         * @param locale
+         * @param messageInterface
+         * @param otherInterfaces
+         * @return 
+         */
 	@SuppressWarnings("unchecked")
 	public synchronized static <T> T createInstance( Locale locale, Class<T>  messageInterface, Class<?> ...otherInterfaces ) {
 		if (messageInterface == null)
