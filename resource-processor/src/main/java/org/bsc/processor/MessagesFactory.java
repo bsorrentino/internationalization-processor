@@ -20,16 +20,24 @@ public class  MessagesFactory  {
 
 			final String key = method.getName();
 
-			if(bundle==null) {
+			if (bundle == null) {
 				DefaultMessage msg = method.getAnnotation(DefaultMessage.class);
-				return (msg!=null) ? msg : key;
+				return (msg != null) ? msg : key;
 			}
 
-			if( "getString".equals(key) && args.length==1 ) return bundle.getString(  args[0].toString() );
+			if (!bundle.containsKey(key))
+				return key;
 
-			if( !bundle.containsKey(key) ) return key;
+			if( args!= null ) {
+				if ("getString".equals(key) && args.length == 1)
+					return bundle.getString(args[0].toString());
 
-                        return  java.text.MessageFormat.format(bundle.getString(key), (Object[])args[0] );
+				return java.text.MessageFormat.format(bundle.getString(key), (Object[]) args[0]);
+			}
+			else {
+				return bundle.getString(key);
+				
+			}
 		}
 
 	}
