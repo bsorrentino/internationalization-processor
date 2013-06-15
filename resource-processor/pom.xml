@@ -4,7 +4,7 @@
   <artifactId>resource-processor</artifactId>
   <packaging>jar</packaging>
   <version>1.3-SNAPSHOT</version>
-  <name>resource-processor</name>
+  <name>resource-processor - ${project.version}</name>
   <description>
   Goal of this project is to provide simple and useful tools based on java annotation processor to accomplish internationalization tasks
 
