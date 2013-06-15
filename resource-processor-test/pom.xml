@@ -5,7 +5,7 @@
   <artifactId>resource-processor-test</artifactId>
   <packaging>jar</packaging>
   <version>1.3-SNAPSHOT</version>
-  <name>resource-processor-test</name>
+  <name>resource-processor-test - ${project.version}</name>
   <url>http://maven.apache.org</url>
     <build>
         <plugins>
