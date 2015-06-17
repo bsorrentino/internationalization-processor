@@ -6,11 +6,8 @@ The idea is to implement the same approach of internationalization used within G
 
 ## News ##
 
-|Apr 29,2011 |  reuse of GWT I18N Messages on server side (see [Issue 3](https://github.com/bsorrentino/internationalization-processor/issues/3)) |
-|:-----------|:----------------------------------------------------------------------------------------------------------------------------------------|
+|Apr 29,2011 | **Release 1.2**. | available from  **[MAVEN CENTRAL REPO](http://search.maven.org/#artifactdetails%7Corg.bsc.processor%7Cresource-processor%7C1.2%7Cjar)**  |
+|:-----------|:-------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------|
 
-## Releases ##
+  * Refer to reuse of GWT I18N Messages on server side (see [Issue 3](https://github.com/bsorrentino/internationalization-processor/issues/3))
 
-|Sep 12,2010 | **Release 1.2**. | Available on  **JAVA.NET REPOSITORY** |
-|:-----------|:-----------------|:--------------------------------------|
-|Monday, February 8, 2010 9:31 PM | **Release 1.1**. | Available from maven |
